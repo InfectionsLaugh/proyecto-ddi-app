@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{ topicName | titlecase }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let value of topic | async | keyvalue">
+    <ion-list-header><h3>{{ value.key | titlecase }}</h3></ion-list-header>
+    <ion-segment [value]="value.value" (ionChange)="segmentChanged($event, value.key)" mode="ios" color="warning">
+      <ion-segment-button value="open">
+        <ion-label>Open</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="close">
+        <ion-label>Close</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{ topicName | titlecase }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let value of topic | async | keyvalue">
+      <ion-label>{{ value.key | titlecase }}</ion-label>
+      <ion-toggle [checked]="value.value == 'on' ? true : false"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

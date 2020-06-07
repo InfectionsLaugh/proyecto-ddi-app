@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>
+      {{ topicName | titlecase }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <h3>Turn On/Off</h3>
+    </ion-list-header>
+    <ion-item>
+      <ion-segment [value]="tvTurned" (ionChange)="toggleTv($event, topicName)" mode="ios" color="warning">
+        <ion-segment-button value="on">
+          <ion-label>On</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="off">
+          <ion-label>Off</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-list>
+          <ion-list-header>
+            <h3>Channel</h3>
+          </ion-list-header>
+          <ion-item [disabled]="turnTv">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12">
+                  <ion-button (click)="changeChannel(1)" color="warning" size="large" expand="block">
+                    <ion-icon name="add"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="text-center" size="12">
+                  {{ tvChannel }}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12">
+                  <ion-button (click)="changeChannel(-1)" color="warning" size="large" expand="block">
+                    <ion-icon name="remove"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-list>
+          <ion-list-header>
+            <h3>Volume</h3>
+          </ion-list-header>
+          <ion-item [disabled]="turnTv">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="12">
+                  <ion-button (click)="changeVolume(1)" color="success" size="large" expand="block">
+                    <ion-icon name="add"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="text-center" size="12">
+                  {{ tvVolume }}
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12">
+                  <ion-button (click)="changeVolume(-1)" color="success" size="large" expand="block">
+                    <ion-icon name="remove"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,5 +1,7 @@
 {
   "name": "mqtt_test",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
